@@ -22,7 +22,7 @@ function NavMenu() {
         >
           <div className="grid width-100 grid-col-40-repeat-auto align-items-center justify-start">
             <Nav.Item>
-              <Nav.Link href="/">
+              <Nav.Link href="/PersonalPage-aboutme">
                 <img
                   id="homeLogo"
                   src={process.env.PUBLIC_URL + "/logoEditedWhite.png"}
@@ -31,7 +31,7 @@ function NavMenu() {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-1" href="/">
+              <Nav.Link eventKey="link-1" href="/PersonalPage-aboutme">
                 Home
               </Nav.Link>
             </Nav.Item>
