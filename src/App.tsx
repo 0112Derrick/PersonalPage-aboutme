@@ -1,25 +1,72 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import NavMenu from "./NavMenu";
+import { Profile } from "./Profile";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useParams,
+} from "react-router-dom";
+import { Col, Container, ListGroupItem, Row } from "react-bootstrap";
+import { Home } from "./Home";
+import { Services } from "./Services";
+import { Portfolio } from "./Portfolio";
+import { PortfolioCard } from "./PortfolioCard";
+import { CardDetail } from "./CardDetail";
+import { projectCards } from "./projects";
+import { Skills } from "./Skills";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <NavMenu></NavMenu>
+
+              <Home></Home>
+
+              <Container fluid>
+                <Row>
+                  <Col id="profile_section">
+                    <Profile></Profile>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Services></Services>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Portfolio></Portfolio>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Skills></Skills>
+                  </Col>
+                </Row>
+              </Container>
+            </>
+          }
+        />
+        <Route
+          path="/card/:id"
+          element={
+            <>
+              <NavMenu></NavMenu>
+              <CardDetail></CardDetail>
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
