@@ -18,7 +18,7 @@ function NavMenu() {
       {isDesktopOrLaptop && (
         <Nav
           activeKey="/home"
-          onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+          // onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
         >
           <div className="grid width-100 grid-col-40-repeat-auto align-items-center justify-start">
             <Nav.Item>
@@ -41,10 +41,13 @@ function NavMenu() {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-3">Skills</Nav.Link>
+              <Nav.Link eventKey="link-3">Services</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="link-4">Projects</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-5">Skills</Nav.Link>
             </Nav.Item>
           </div>
         </Nav>

@@ -265,6 +265,27 @@ body {
   transform: scale(3);
 }
 
+#homeLogo:hover {
+  filter: invert(100%) sepia(100%) saturate(0%) brightness(50%) contrast(200%);
+  transition: all;
+  animation: animateLogo 8.5s linear infinite;
+}
+
+@keyframes animateLogo {
+  0%,
+  100% {
+    filter: invert(0%) sepia(0%) saturate(0%) brightness(100%) contrast(200%);
+    /* filter: invert(48%) sepia(85%) saturate(2500%) hue-rotate(130deg)
+      brightness(95%) contrast(120%); */
+  }
+
+  50% {
+    filter: invert(100%) sepia(100%) saturate(0%) brightness(50%) contrast(200%);
+    /* filter: invert(85%) sepia(30%) saturate(1207%) hue-rotate(130deg)
+      brightness(95%) contrast(80%); */
+  }
+}
+
 .nav {
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -278,11 +299,33 @@ body {
 }
 
 .nav-item > a {
+  position: relative;
   text-transform: uppercase;
-  font-weight: 300;
-  font-size: 0.83rem;
+  font-weight: 500;
+  font-size: 0.9rem;
   color: #fff;
   font-family: "Poppins", sans-serif;
+}
+
+.nav-item > a:hover {
+  --bg-size: 400%;
+  --color-one: var(--site-alternate-color);
+  --color-two: var(--site-alternate-color-2);
+  --color-three: var(--site-primary-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-three),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: colorChange 8.5s infinite linear;
 }
 
 .nav-item {
@@ -604,7 +647,7 @@ header {
   position: absolute;
   height: 65%;
   width: 95%;
-  top: 5%;
+  top: 6%;
   left: 50%;
   transform: translate(-50%, 0%);
   background-color: rgba(0, 0, 0, 0.5);
@@ -794,6 +837,12 @@ header {
     rgba(0, 0, 0, 0) 65%,
     rgba(0, 0, 0, 0.7)
   );
+}
+
+@keyframes colorChange {
+  to {
+    background-position: var(--bg-size) 0;
+  }
 }
 
 @keyframes dropDown {
