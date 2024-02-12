@@ -8,16 +8,14 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Link,
-  useParams,
 } from "react-router-dom";
 import { Col, Container, ListGroupItem, Row } from "react-bootstrap";
 import { Home } from "./Home";
 import { Services } from "./Services";
 import { Portfolio } from "./Portfolio";
-import { PortfolioCard } from "./PortfolioCard";
+
 import { CardDetail } from "./CardDetail";
-import { projectCards } from "./projects";
+
 import { Skills } from "./Skills";
 function App() {
   return (

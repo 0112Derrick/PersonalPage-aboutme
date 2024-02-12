@@ -41,13 +41,19 @@ function NavMenu() {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-3">Services</Nav.Link>
+              <Nav.Link eventKey="link-3" href="#services_section">
+                Services
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-4">Projects</Nav.Link>
+              <Nav.Link eventKey="link-4" href="#portfolio_section">
+                Projects
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-5">Skills</Nav.Link>
+              <Nav.Link eventKey="link-5" href="#skills_section">
+                Skills
+              </Nav.Link>
             </Nav.Item>
           </div>
         </Nav>
@@ -90,16 +96,16 @@ function NavMenu() {
                       <Nav.Link href="/">Home</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="/">Profile</Nav.Link>
+                      <Nav.Link href="#profile_section">Profile</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="/">Services</Nav.Link>
+                      <Nav.Link href="#services_section">Services</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="/">Portfolio</Nav.Link>
+                      <Nav.Link href="#portfolio_section">Portfolio</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="/">Skills</Nav.Link>
+                      <Nav.Link href="#skills_section">Skills</Nav.Link>
                     </Nav.Item>
                   </Row>
                 </Container>
