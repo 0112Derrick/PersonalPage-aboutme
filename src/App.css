@@ -56,6 +56,10 @@ body {
   background-color: var(--site-alternate-color);
 }
 
+.bg-color-4 {
+  background-color: var(--bg-1);
+}
+
 .gap {
   gap: 0.5rem;
 }
@@ -466,12 +470,12 @@ header {
 }
 
 .text {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
   padding: 1rem;
   font-size: large;
   border-radius: 5px;
-  width: 70%;
+  width: 85%;
 }
 
 .text-align-left {

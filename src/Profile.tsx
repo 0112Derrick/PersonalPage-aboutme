@@ -18,8 +18,11 @@ export function Profile() {
   };
 
   return (
-    <div >
-      <Container className="padding-sm margin-inline-sm rounded" fluid>
+    <div>
+      <Container
+        className="padding-sm margin-inline-sm rounded bg-color-4"
+        fluid
+      >
         <Row
           className="grid grid-col-repeat-auto align-items-center justify-center padding-sm"
           ref={rowRef}
