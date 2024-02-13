@@ -13,7 +13,7 @@ export function Home() {
     <>
       {isDesktopOrLaptop && (
         <>
-          <div className="parallax" id="home"></div>
+          <div className="parallax"></div>
           <main>
             {/* <div className="vingette"></div> */}
 
@@ -67,7 +67,6 @@ export function Home() {
         <Image
           src={`${process.env.PUBLIC_URL}/images/fulldesign.png`}
           fluid
-          id="home"
         ></Image>
       )}
     </>

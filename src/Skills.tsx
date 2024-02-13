@@ -6,7 +6,7 @@ export function Skills() {
       <Container
         className="skills-section padding-md margin-inline-sm rounded"
         fluid
-        id="skills_section"
+        
       >
         <Row className="grid grid-col-repeat-auto align-items-center justify-center padding-sm">
           <Col className="flex align-items-center justify-center flex-shrink-2">

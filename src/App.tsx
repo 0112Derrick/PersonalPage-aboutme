@@ -18,28 +18,37 @@ import { Portfolio } from "./Portfolio";
 import { CardDetail } from "./CardDetail";
 
 import { Skills } from "./Skills";
-function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+
+export function ScrollIntoView() {
+  const location = window.location.search;
+
+  console.log("Search: " + window.location.search);
 
   useEffect(() => {
-    if (hash) {
-      const id = hash.substring(1); // Remove '#' from hash
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+    const params = new URLSearchParams(location);
+    console.log(params.toString());
+    console.log(params.has("scrollTo"));
+
+    const sectionToScroll = params.get("scrollTo");
+    if (sectionToScroll) {
+      console.log(sectionToScroll);
+      const targetElement = document.querySelector("#" + sectionToScroll);
+      if (targetElement) {
+        targetElement?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.error("Element does not exist.");
       }
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [pathname, hash]);
-
+  }, [location]);
   return null;
 }
 
 function App() {
   return (
     <Router>
-      <ScrollToTop />
+      <ScrollIntoView></ScrollIntoView>
       <Routes>
         <Route
           path="/"
@@ -56,17 +65,17 @@ function App() {
                   </Col>
                 </Row>
                 <Row>
-                  <Col>
+                  <Col id="services_section">
                     <Services></Services>
                   </Col>
                 </Row>
                 <Row>
-                  <Col>
+                  <Col id="portfolio_section">
                     <Portfolio></Portfolio>
                   </Col>
                 </Row>
                 <Row>
-                  <Col>
+                  <Col id="skills_section">
                     <Skills></Skills>
                   </Col>
                 </Row>
@@ -78,7 +87,7 @@ function App() {
           path="/card/:id"
           element={
             <>
-              <NavMenu></NavMenu>
+              <NavMenu onDetailsPage={true}></NavMenu>
               <CardDetail></CardDetail>
             </>
           }

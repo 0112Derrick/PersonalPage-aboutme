@@ -3,11 +3,22 @@ import { useMediaQuery } from "react-responsive";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 
-function NavMenu() {
+function scrollIntoView(ele: any) {
+  const targetElement = document.querySelector(ele) as HTMLElement;
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: "smooth" });
+  }
+}
+interface NavMenuI {
+  onDetailsPage?: boolean | undefined;
+}
+
+function NavMenu({ onDetailsPage }: NavMenuI) {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1000px)",
   });
-
+  if (onDetailsPage) {
+  }
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
 
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
@@ -36,22 +47,62 @@ function NavMenu() {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-2" href="#profile_section">
+              <Nav.Link
+                eventKey="link-2"
+                onClick={() => {
+                  if (onDetailsPage) {
+                    window.location.href =
+                      "/PersonalPage-aboutme?scrollTo=profile_section";
+                  } else {
+                    scrollIntoView("#profile_section");
+                  }
+                }}
+              >
                 Profile
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-3" href="#services_section">
+              <Nav.Link
+                eventKey="link-3"
+                onClick={() => {
+                  if (onDetailsPage) {
+                    window.location.href =
+                      "/PersonalPage-aboutme?scrollTo=services_section";
+                  } else {
+                    scrollIntoView("#services_section");
+                  }
+                }}
+              >
                 Services
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-4" href="#portfolio_section">
+              <Nav.Link
+                eventKey="link-4"
+                onClick={() => {
+                  if (onDetailsPage) {
+                    window.location.href =
+                      "/PersonalPage-aboutme?scrollTo=portfolio_section";
+                  } else {
+                    scrollIntoView("#portfolio_section");
+                  }
+                }}
+              >
                 Projects
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-5" href="#skills_section">
+              <Nav.Link
+                eventKey="link-5"
+                onClick={() => {
+                  if (onDetailsPage) {
+                    window.location.href =
+                      "/PersonalPage-aboutme?scrollTo=skills_section";
+                  } else {
+                    scrollIntoView("#skills_section");
+                  }
+                }}
+              >
                 Skills
               </Nav.Link>
             </Nav.Item>
@@ -61,7 +112,7 @@ function NavMenu() {
       {isTabletOrMobile && (
         <Nav className="grid grid-mobile-nav padding-sm width-100 align-items-center">
           <Nav.Item>
-            <Nav.Link href="/">
+            <Nav.Link href="/PersonalPage-aboutme">
               <img
                 id="homeLogo"
                 src={process.env.PUBLIC_URL + "/logoEditedWhite.png"}
@@ -93,19 +144,63 @@ function NavMenu() {
                 >
                   <Row className="flex-d-col align-items-start">
                     <Nav.Item>
-                      <Nav.Link href="/">Home</Nav.Link>
+                      <Nav.Link href="/PersonalPage-aboutme">Home</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="#profile_section">Profile</Nav.Link>
+                      <Nav.Link
+                        onClick={() => {
+                          if (onDetailsPage) {
+                            window.location.href =
+                              "/PersonalPage-aboutme?scrollTo=profile_section";
+                          } else {
+                            scrollIntoView("#profile_section");
+                          }
+                        }}
+                      >
+                        Profile
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="#services_section">Services</Nav.Link>
+                      <Nav.Link
+                        onClick={() => {
+                          if (onDetailsPage) {
+                            window.location.href =
+                              "/PersonalPage-aboutme?scrollTo=services_section";
+                          } else {
+                            scrollIntoView("#services_section");
+                          }
+                        }}
+                      >
+                        Services
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="#portfolio_section">Portfolio</Nav.Link>
+                      <Nav.Link
+                        onClick={() => {
+                          if (onDetailsPage) {
+                            window.location.href =
+                              "/PersonalPage-aboutme?scrollTo=portfolio_section";
+                          } else {
+                            scrollIntoView("#portfolio_section");
+                          }
+                        }}
+                      >
+                        Portfolio
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link href="#skills_section">Skills</Nav.Link>
+                      <Nav.Link
+                        onClick={() => {
+                          if (onDetailsPage) {
+                            window.location.href =
+                              "/PersonalPage-aboutme?scrollTo=skills_section";
+                          } else {
+                            scrollIntoView("#skills_section");
+                          }
+                        }}
+                      >
+                        Skills
+                      </Nav.Link>
                     </Nav.Item>
                   </Row>
                 </Container>

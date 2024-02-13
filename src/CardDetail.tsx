@@ -32,7 +32,7 @@ export function CardDetail() {
         <Container className="cardDetail rounded">
           <Row>
             <Col>
-              <Link to={"/"}>Back To Home</Link>
+              <Link to={"/PersonalPage-aboutme"}>Back To Home</Link>
               <Image
                 src={foundCard.imageUrl}
                 fluid

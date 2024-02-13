@@ -18,7 +18,7 @@ export function Profile() {
   };
 
   return (
-    <div className="profile_section">
+    <div >
       <Container className="padding-sm margin-inline-sm rounded" fluid>
         <Row
           className="grid grid-col-repeat-auto align-items-center justify-center padding-sm"

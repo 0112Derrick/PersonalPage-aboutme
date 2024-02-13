@@ -8,7 +8,7 @@ export const projectCards = [
     releaseDate: "02/17/2024",
     siteUrl: "https://betterstewards.org/",
     description:
-      "A website developed in wordpress to bring better promotion to the Better Stewards non-profit organization.",
+      "I've developed a WordPress website aimed at enhancing the promotion efforts of the Better Stewards non-profit organization. This platform serves as a comprehensive online presence, showcasing the organization's mission, initiatives, and impact. Through intuitive design and engaging content, the website aims to amplify awareness and support for Better Stewards' important work within the community.",
     techUsed: ["Wordpress", "JavaScript"],
     filters: ["wordpress", "javascript", "frontend"],
   },
@@ -20,8 +20,7 @@ export const projectCards = [
     released: true,
     releaseDate: "12/20/2023",
     siteUrl: "",
-    description:
-      "A desktop app developed to interface with Twitch.tv with the purpose of auto playing the twitch game: Pokémon Community Game.",
+    description: `I've created a desktop application designed to seamlessly interface with Twitch.tv, specifically tailored to automatically engage in the Twitch game "Pokémon Community Game." This app streamlines the process, allowing users to participate effortlessly in the collective gaming experience without manual intervention.`,
     techUsed: ["Electron", "JavaScript"],
     filters: ["electron", "javascript", "frontend", "released", "nodejs"],
   },
@@ -33,7 +32,8 @@ export const projectCards = [
     released: false,
     releaseDate: "N/A: In Development",
     siteUrl: "https://github.com/0112Derrick/Laundromat-Hub",
-    description: "",
+    description:
+      "I have a vision for revolutionizing the way people pay for laundry services. I am developing an app that will enable users to pay for washing machine usage using their debit or credit cards directly from their smartphones, eliminating the need for searching for quarters. This innovation promises benefits for both customers and Laundromat owners, providing real-time visibility into machine usage for better management and convenience.",
     techUsed: ["ReactJS", "Asp.Net", "Bootstrap"],
     filters: [
       "react",
@@ -52,7 +52,8 @@ export const projectCards = [
     released: false,
     releaseDate: "N/A",
     siteUrl: "https://github.com/0112Derrick/GeesClippersTechTitans-Personal",
-    description: "",
+    description:
+      "I worked on a project during my time with i.c.stars that revitalized a barbershop's corporate website. This involved integrating videos and implementing a content management system, enabling barbers to upload haircut videos and administrators to post real-time events. Additionally, the system included a review feature, facilitating communication between the barbershop and its community.",
     techUsed: ["HTML5", "CSS3", "TypeScript", "NodeJs", "ExpressJS"],
     filters: [
       "javascript",
@@ -72,7 +73,8 @@ export const projectCards = [
     released: false,
     releaseDate: "N/A: In Development",
     siteUrl: "https://github.com/0112Derrick/Wizards-Dream",
-    description: "",
+    description:
+      "Since childhood, I've been captivated by MMORPGs and online role-playing games. The communal bond they foster is what truly draws me in. Hence, I've embarked on a journey to create my own video game from the ground up, complete with its own game engine. This project will delve into the realms of magic and exploration, offering players a rich and immersive experience.",
     techUsed: [
       "HTML5",
       "CSS3",
@@ -99,7 +101,8 @@ export const projectCards = [
     released: false,
     releaseDate: "Paused",
     siteUrl: "https://github.com/0112Derrick/BIPOC_TS",
-    description: "",
+    description:
+      "This app is designed to bridge the gap between employers and prospective employees within the green sector. It offers a dedicated space for both parties to discover and post open positions, fostering success and growth. Additionally, the app includes features such as affinity groups, providing a supportive environment for individuals in the BIPOC/LGBTQ+ community to connect with safe spaces and opportunities tailored to their needs.",
     techUsed: ["HTML5", "CSS3", "TypeScript"],
     filters: [
       "javascript",
@@ -119,7 +122,7 @@ export const projectCards = [
     released: true,
     releaseDate: "05/20/2021",
     siteUrl: "https://cap20.org",
-    description: "",
+    description: "A corporate web page for the Capitalism 2.0 organization.",
     techUsed: ["HTML5", "CSS3", "TypeScript", "NodeJs", "ExpressJS"],
     filters: [
       "javascript",
