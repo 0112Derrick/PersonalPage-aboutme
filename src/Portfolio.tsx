@@ -52,10 +52,11 @@ export function Portfolio() {
           />
         </Col>
         <Col className="flex align-items-center justify-center">
-          <h1 className="padding-md">Portfolio</h1>
+          <h1 className="padding-md section-title">Portfolio</h1>
         </Col>
       </Row>
-      <Row className="flex align-items-center justify-center fluid gap padding-b-md">
+      <hr></hr>
+      <Row className="flex align-items-center justify-center fluid gap padding-md">
         <div className="portfolio-button-container">
           <Button
             onClick={() => {

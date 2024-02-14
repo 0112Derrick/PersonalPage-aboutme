@@ -30,9 +30,16 @@ export function CardDetail() {
 
       setCardDetails(
         <Container className="cardDetail rounded">
-          <Row>
-            <Col>
-              <Link to={"/PersonalPage-aboutme"}>Back To Home</Link>
+          <Row className="padding-sm">
+            <Col className="flex flex-d-col  justify-center">
+              <div
+                className="details-button-home"
+                onClick={() => {
+                  window.location.href = "/PersonalPage-aboutme";
+                }}
+              >
+                Back To Home
+              </div>
               <Image
                 src={foundCard.imageUrl}
                 fluid
@@ -57,7 +64,9 @@ export function CardDetail() {
               {foundCard.siteUrl && (
                 <div className="flex gap padding-b-sm">
                   <b>See The Site:</b>
-                  <Link to={foundCard.siteUrl}>Click Here</Link>
+                  <Link className="site-link" to={foundCard.siteUrl}>
+                    Click Here
+                  </Link>
                 </div>
               )}
               <hr></hr>

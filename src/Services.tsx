@@ -6,7 +6,6 @@ export function Services() {
     <Container
       className="services-section padding-md margin-inline-sm rounded"
       fluid
-     
     >
       <Row className="grid grid-col-repeat-auto align-items-center justify-center padding-sm">
         <Col className="flex align-items-center justify-center flex-shrink-2">
@@ -16,10 +15,11 @@ export function Services() {
           ></Image>
         </Col>
         <Col className="flex align-items-center justify-center ">
-          <h1 className="padding-md">Services</h1>
+          <h1 className="padding-md section-title">Services</h1>
         </Col>
       </Row>
-      <Row className="flex align-items-center justify-center">
+      <hr></hr>
+      <Row className="flex align-items-center justify-center padding-md">
         <Col className="padding-inline-sm flex align-items-center justify-center">
           <Card className="servicesCard servicesCard--frontEndDev padding-sm card-colored-bottom-1">
             <Card.Img

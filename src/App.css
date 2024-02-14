@@ -40,6 +40,13 @@ body {
   }
 }
 
+.section-title {
+  font-weight: 600;
+  color: black;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 3px;
+}
+
 .card-bg-1 {
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -70,6 +77,7 @@ body {
 
 .width-100 {
   width: 100% !important;
+  max-width: 100% !important;
 }
 
 .width-75 {
@@ -161,6 +169,10 @@ body {
   display: grid !important;
 }
 
+.margin-0 {
+  margin: 0 !important;
+}
+
 .margin-inline-sm {
   margin: 0.5rem 0;
 }
@@ -211,6 +223,10 @@ body {
 
 .padding-lg {
   padding: 4rem;
+}
+
+.grid-col-1 {
+  grid-template-columns: auto;
 }
 
 .grid-col-repeat-auto {
@@ -449,7 +465,7 @@ header {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  filter: blur(2.5px);
+  filter: blur(1.5px);
 }
 
 .background {
@@ -471,6 +487,7 @@ header {
 
 .text {
   background: rgba(0, 0, 0, 0.7);
+  /* background-color: var(--site-alternate-color); */
   text-transform: uppercase;
   padding: 1rem;
   font-size: large;
@@ -514,10 +531,6 @@ header {
 }
 
 #expandAboutMe {
-  background-color: var(--site-secondary-color);
-  color: #000;
-  border: #000 1px solid;
-  box-shadow: 1px 3px 5px black;
   margin-bottom: 1rem;
 }
 
@@ -572,13 +585,13 @@ header {
 .servicesCard--fullStackDev {
   --font-weight-header: 600;
   --font-weight-text: 500;
-  --bottom-color: var(--site-primary-color);
+  --bottom-color: var(--site-alternate-color);
 }
 
 .servicesCard--fullStackDev:hover {
   --background-color: white;
   transform: scale(1.05);
-  --shadow: var(--site-primary-color);
+  --shadow: var(--site-alternate-color);
   animation: grow 1s ease;
   transition: all;
 }
@@ -691,14 +704,15 @@ header {
 
 .portfolio-button-container {
   display: grid;
-  grid-template-columns: repeat(5, 130px);
+  grid-template-columns: repeat(4, 130px);
   gap: 10px;
   align-items: center;
   justify-items: center;
   justify-content: center;
 }
 
-.portfolio-button-container button {
+.portfolio-button-container button,
+#expandAboutMe {
   background-color: var(--bg-2) !important;
   --_borderColor: var(--borderColor, black);
   color: #444343;
@@ -709,7 +723,8 @@ header {
 }
 
 .portfolio-button-container button:hover,
-.portfolio-button-container button:focus {
+.portfolio-button-container button:focus,
+#expandAboutMe:hover {
   --borderColor: var(--site-alternate-color);
   color: var(--site-alternate-color);
   box-shadow: 3px 3px 5px black;
@@ -744,13 +759,33 @@ header {
 }
 
 .cardDetail {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* position: absolute;
+  top: 55%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
   padding: 2rem;
   background-color: var(--bg-2);
   text-decoration: none;
+  margin: 9rem 0;
+  padding-bottom: 2rem;
+  overflow-y: scroll;
+}
+
+.details-button-home,
+.site-link {
+  color: #46938c;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.details-button-home:hover,
+.site-link:hover {
+  color: var(--site-alternate-color-2);
+  transform: scale(1.1);
+  padding-left: 1.1rem;
+}
+.site-link:hover {
+  padding-left: unset;
 }
 
 .cardDetail h2 {
@@ -825,8 +860,14 @@ header {
 }
 
 .img-icon {
+  --_background-color: var(--background-color, rgba(0, 0, 0, 0));
   aspect-ratio: 1/1;
   height: 100px;
+  border-radius: 50%;
+  background-color: var(--_background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .vingette {
@@ -841,6 +882,37 @@ header {
     rgba(0, 0, 0, 0) 65%,
     rgba(0, 0, 0, 0.7)
   );
+}
+
+.footer-section {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer-icon,
+.footer-icon-inner {
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  height: 75px;
+  fill: black;
+}
+
+.footer-icon:hover,
+.footer-icon-inner:hover {
+  fill: var(--site-alternate-color-2);
+}
+
+.footer-text-section {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
 }
 
 @keyframes colorChange {
@@ -980,6 +1052,16 @@ header {
 
 /* Media query for screens smaller than 768px */
 @media screen and (max-width: 768px) {
+  .cardDetail {
+    position: unset;
+    transform: translate(0, 0);
+    margin: 8rem 0;
+  }
+
+  .cardDetail div {
+    flex-direction: column;
+  }
+
   .portfolio-button-container {
     grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
   }
@@ -1001,15 +1083,6 @@ header {
 
 /* Media query for screens smaller than 480px */
 @media screen and (max-width: 480px) {
-  .cardDetail {
-    position: unset;
-    transform: translate(0, 0);
-  }
-
-  .cardDetail div {
-    flex-direction: column;
-  }
-
   .nav-mobile-menu-icon-background {
     transform: scale(0.4);
   }

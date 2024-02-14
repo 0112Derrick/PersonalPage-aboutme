@@ -6,7 +6,6 @@ export function Skills() {
       <Container
         className="skills-section padding-md margin-inline-sm rounded"
         fluid
-        
       >
         <Row className="grid grid-col-repeat-auto align-items-center justify-center padding-sm">
           <Col className="flex align-items-center justify-center flex-shrink-2">
@@ -17,11 +16,12 @@ export function Skills() {
             />
           </Col>
           <Col className="flex align-items-center justify-center">
-            <h1 className="padding-md">Skills</h1>
+            <h1 className="padding-md section-title">Skills</h1>
           </Col>
         </Row>
+        <hr></hr>
         <Row className="grid grid-col-repeat-3-auto padding-sm align-items-center justify-center gap">
-          <Col className="text-align-center flex flex-d-col align-items-center justify-center">
+          <Col className="text-align-center flex flex-d-col align-items-center justify-center padding-md">
             <Image
               fluid
               src={`${process.env.PUBLIC_URL}/images/html.svg`}

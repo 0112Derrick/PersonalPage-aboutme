@@ -18,6 +18,7 @@ import { Portfolio } from "./Portfolio";
 import { CardDetail } from "./CardDetail";
 
 import { Skills } from "./Skills";
+import Footer from "./Footer";
 
 export function ScrollIntoView() {
   const location = window.location.search;
@@ -77,6 +78,11 @@ function App() {
                 <Row>
                   <Col id="skills_section">
                     <Skills></Skills>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col id="footer_section" className="width-100 padding-0">
+                    <Footer></Footer>
                   </Col>
                 </Row>
               </Container>

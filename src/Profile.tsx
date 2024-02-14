@@ -34,9 +34,10 @@ export function Profile() {
             ></Image>
           </Col>
           <Col className="flex align-items-center justify-center">
-            <h1 className="padding-md">Profile</h1>
+            <h1 className="padding-md section-title">Profile</h1>
           </Col>
         </Row>
+        <hr></hr>
         <Row
           className={`${!isTabletOrMobile && "overflow-y-hidden"} padding-md ${
             textMinimized
@@ -49,7 +50,7 @@ export function Profile() {
             <>
               <Col className="flex justify-start align-items-center flex-d-col width-100">
                 <Button id="expandAboutMe" onClick={toggleTextExpansion}>
-                  See More
+                  {textMinimized ? "See More" : "See Less"}
                 </Button>
                 <p
                   id="aboutMe_text"
