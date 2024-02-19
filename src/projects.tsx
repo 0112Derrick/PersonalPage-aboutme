@@ -4,13 +4,13 @@ export const projectCards = [
     cardName: "Better Stewards",
     techStack: "FrontEnd",
     imageUrl: `${process.env.PUBLIC_URL}/images/better-steward2.avif`,
-    released: false,
+    released: true,
     releaseDate: "02/17/2024",
     siteUrl: "https://betterstewards.org/",
     description:
       "I've developed a WordPress website aimed at enhancing the promotion efforts of the Better Stewards non-profit organization. This platform serves as a comprehensive online presence, showcasing the organization's mission, initiatives, and impact. Through intuitive design and engaging content, the website aims to amplify awareness and support for Better Stewards' important work within the community.",
-    techUsed: ["Wordpress", "JavaScript"],
-    filters: ["wordpress", "javascript", "frontend"],
+    techUsed: ["Wordpress", "JavaScript", "MySQL", "CPanel"],
+    filters: ["wordpress", "javascript", "frontend", "mysql"],
   },
   {
     id: 1,

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Card, Container, Row, Col, Button, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { PortfolioCard } from "./PortfolioCard";
 import { projectCards } from "./projects";
 
-interface PortfolioI {
-  projects: JSX.Element[] | null;
-}
+// interface PortfolioI {
+//   projects: JSX.Element[] | null;
+// }
 
 export function Portfolio() {
   const [filterSetting, setFilterSetting] = useState("");
@@ -15,11 +15,11 @@ export function Portfolio() {
     projectCards && Array.isArray(projectCards)
       ? projectCards.map((projectCard) => {
           if (
-            filterSetting == "" ||
+            filterSetting === "" ||
             projectCard.filters.find(
-              (tech) => tech.toLowerCase() == filterSetting.toLowerCase()
+              (tech) => tech.toLowerCase() === filterSetting.toLowerCase()
             )
-          )
+          ) {
             return (
               <Col
                 className="padding-inline-sm flex align-items-center justify-center"
@@ -35,6 +35,8 @@ export function Portfolio() {
                 ></PortfolioCard>
               </Col>
             );
+          }
+        return null;
         })
       : null;
 

@@ -15,6 +15,7 @@ export function CardDetail() {
   const { id } = useParams();
   const [cardDetails, setCardDetails] = useState<JSX.Element | null>(null);
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 480px)" });
+  const siteUrl = "/";
 
   useEffect(() => {
     const foundCard = projectCards.find(
@@ -35,7 +36,7 @@ export function CardDetail() {
               <div
                 className="details-button-home"
                 onClick={() => {
-                  window.location.href = "/PersonalPage-aboutme";
+                  window.location.href = siteUrl;
                 }}
               >
                 Back To Home

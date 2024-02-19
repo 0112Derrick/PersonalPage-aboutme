@@ -9,6 +9,7 @@ function scrollIntoView(ele: any) {
     targetElement.scrollIntoView({ behavior: "smooth" });
   }
 }
+
 interface NavMenuI {
   onDetailsPage?: boolean | undefined;
 }
@@ -17,6 +18,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1000px)",
   });
+  const pageUrl = "/";
   if (onDetailsPage) {
   }
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
@@ -33,7 +35,23 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
         >
           <div className="grid width-100 grid-col-40-repeat-auto align-items-center justify-start">
             <Nav.Item>
-              <Nav.Link href="/PersonalPage-aboutme">
+              <Nav.Link
+                onClick={() => {
+                  console.log(
+                    `window:\n origin: ${window.location.origin}\n href:${window.location.href} `
+                  );
+
+                  console.log();
+                  if (
+                    !onDetailsPage &&
+                    window.location.href.includes(window.location.origin)
+                  ) {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    window.location.href = pageUrl;
+                  }
+                }}
+              >
                 <img
                   id="homeLogo"
                   src={process.env.PUBLIC_URL + "/logoEditedWhite.png"}
@@ -42,7 +60,24 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="link-1" href="/PersonalPage-aboutme">
+              <Nav.Link
+                eventKey="link-1"
+                onClick={() => {
+                  console.log(
+                    `window:\n origin: ${window.location.origin}\n href:${window.location.href} `
+                  );
+
+                  console.log();
+                  if (
+                    !onDetailsPage &&
+                    window.location.href.includes(window.location.origin)
+                  ) {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    window.location.href = pageUrl;
+                  }
+                }}
+              >
                 Home
               </Nav.Link>
             </Nav.Item>
@@ -51,8 +86,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                 eventKey="link-2"
                 onClick={() => {
                   if (onDetailsPage) {
-                    window.location.href =
-                      "/PersonalPage-aboutme?scrollTo=profile_section";
+                    window.location.href = `${pageUrl}?scrollTo=profile_section`;
                   } else {
                     scrollIntoView("#profile_section");
                   }
@@ -66,8 +100,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                 eventKey="link-3"
                 onClick={() => {
                   if (onDetailsPage) {
-                    window.location.href =
-                      "/PersonalPage-aboutme?scrollTo=services_section";
+                    window.location.href = `${pageUrl}?scrollTo=services_section`;
                   } else {
                     scrollIntoView("#services_section");
                   }
@@ -81,8 +114,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                 eventKey="link-4"
                 onClick={() => {
                   if (onDetailsPage) {
-                    window.location.href =
-                      "/PersonalPage-aboutme?scrollTo=portfolio_section";
+                    window.location.href = `${pageUrl}?scrollTo=portfolio_section`;
                   } else {
                     scrollIntoView("#portfolio_section");
                   }
@@ -96,8 +128,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                 eventKey="link-5"
                 onClick={() => {
                   if (onDetailsPage) {
-                    window.location.href =
-                      "/PersonalPage-aboutme?scrollTo=skills_section";
+                    window.location.href = `${pageUrl}?scrollTo=skills_section`;
                   } else {
                     scrollIntoView("#skills_section");
                   }
@@ -112,7 +143,23 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
       {isTabletOrMobile && (
         <Nav className="grid grid-mobile-nav padding-sm width-100 align-items-center">
           <Nav.Item>
-            <Nav.Link href="/PersonalPage-aboutme">
+            <Nav.Link
+              onClick={() => {
+                console.log(
+                  `window:\n origin: ${window.location.origin}\n href:${window.location.href} `
+                );
+
+                console.log();
+                if (
+                  !onDetailsPage &&
+                  window.location.href.includes(window.location.origin)
+                ) {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                  window.location.href = pageUrl;
+                }
+              }}
+            >
               <img
                 id="homeLogo"
                 src={process.env.PUBLIC_URL + "/logoEditedWhite.png"}
@@ -144,14 +191,33 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                 >
                   <Row className="flex-d-col align-items-start">
                     <Nav.Item>
-                      <Nav.Link href="/PersonalPage-aboutme">Home</Nav.Link>
+                      <Nav.Link
+                        onClick={() => {
+                          console.log(
+                            `window:\n origin: ${window.location.origin}\n href:${window.location.href} `
+                          );
+
+                          console.log();
+                          if (
+                            !onDetailsPage &&
+                            window.location.href.includes(
+                              window.location.origin
+                            )
+                          ) {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          } else {
+                            window.location.href = pageUrl;
+                          }
+                        }}
+                      >
+                        Home
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                       <Nav.Link
                         onClick={() => {
                           if (onDetailsPage) {
-                            window.location.href =
-                              "/PersonalPage-aboutme?scrollTo=profile_section";
+                            window.location.href = `${pageUrl}?scrollTo=profile_section`;
                           } else {
                             scrollIntoView("#profile_section");
                           }
@@ -164,8 +230,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                       <Nav.Link
                         onClick={() => {
                           if (onDetailsPage) {
-                            window.location.href =
-                              "/PersonalPage-aboutme?scrollTo=services_section";
+                            window.location.href = `${pageUrl}?scrollTo=services_section`;
                           } else {
                             scrollIntoView("#services_section");
                           }
@@ -178,8 +243,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                       <Nav.Link
                         onClick={() => {
                           if (onDetailsPage) {
-                            window.location.href =
-                              "/PersonalPage-aboutme?scrollTo=portfolio_section";
+                            window.location.href = `${pageUrl}?scrollTo=portfolio_section`;
                           } else {
                             scrollIntoView("#portfolio_section");
                           }
@@ -192,8 +256,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                       <Nav.Link
                         onClick={() => {
                           if (onDetailsPage) {
-                            window.location.href =
-                              "/PersonalPage-aboutme?scrollTo=skills_section";
+                            window.location.href = `${pageUrl}?scrollTo=skills_section`;
                           } else {
                             scrollIntoView("#skills_section");
                           }
