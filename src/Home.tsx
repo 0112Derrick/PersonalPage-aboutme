@@ -1,22 +1,31 @@
 import React from "react";
-import { Profile } from "./Profile";
+
 import { Image } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
+import Sparkle from "./Sparkle";
+import MouseAsImage from "./MouseAsImage";
 
 export function Home() {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1000px)",
   });
+  const containerRef = React.useRef(null);
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+
   return (
     <>
       {isDesktopOrLaptop && (
         <>
           <div className="parallax"></div>
-          <main>
-            {/* <div className="vingette"></div> */}
+          <main ref={containerRef}>
+            <Sparkle
+              parentRef={containerRef}
+              maxSparkles={30}
+              eraseTime={3000}
+            ></Sparkle>
 
+            {/* <div className="vingette"></div> */}
             <header>
               <img
                 src={process.env.PUBLIC_URL + "/images/galaxySky02.png"}

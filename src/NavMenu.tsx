@@ -47,6 +47,9 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                     window.location.href.includes(window.location.origin)
                   ) {
                     window.scrollTo({ top: 0, behavior: "smooth" });
+                    document
+                      .querySelector("main")
+                      ?.scrollTo({ top: 0, behavior: "smooth" });
                   } else {
                     window.location.href = pageUrl;
                   }
@@ -64,7 +67,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                 eventKey="link-1"
                 onClick={() => {
                   console.log(
-                    `window:\n origin: ${window.location.origin}\n href:${window.location.href} `
+                    `window:\n origin: ${window.location.origin}\n href:${window.location.href}`
                   );
 
                   console.log();
@@ -73,6 +76,9 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                     window.location.href.includes(window.location.origin)
                   ) {
                     window.scrollTo({ top: 0, behavior: "smooth" });
+                    document
+                      .querySelector("main")
+                      ?.scrollTo({ top: 0, behavior: "smooth" });
                   } else {
                     window.location.href = pageUrl;
                   }
@@ -146,7 +152,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
             <Nav.Link
               onClick={() => {
                 console.log(
-                  `window:\n origin: ${window.location.origin}\n href:${window.location.href} `
+                  `window:\n origin: ${window.location.origin}\n href:${window.location.href}`
                 );
 
                 console.log();
