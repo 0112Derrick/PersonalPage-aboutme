@@ -64,7 +64,9 @@ export function CardDetail() {
               </p>
               {foundCard.siteUrl && (
                 <div className="flex gap padding-b-sm">
-                  <b>See The Site:</b>
+                  <b>
+                    {foundCard.released ? "See The Site:" : "See The Repo:"}
+                  </b>
                   <Link className="site-link" to={foundCard.siteUrl}>
                     Click Here
                   </Link>
@@ -72,7 +74,7 @@ export function CardDetail() {
               )}
               <hr></hr>
               <h3>Tech Used:</h3>
-              <ListGroup>{techUsedList}</ListGroup>
+              <ListGroup className="techUsedItem">{techUsedList}</ListGroup>
             </Col>
           </Row>
         </Container>

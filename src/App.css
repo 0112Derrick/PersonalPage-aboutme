@@ -8,6 +8,12 @@
   box-sizing: border-box;
 }
 
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 :root {
   --text-dark-background: #fff;
   --text-light-background: #3a3a3aea;
@@ -18,6 +24,10 @@
   --site-secondary-color: #f3f0ed;
   --site-alternate-color: #87b0b7;
   --site-alternate-color-2: #60c3bb;
+
+  --button-linear-gradient-color-1: #583d26;
+  --button-linear-gradient-color-2: #7e5736;
+  --button-linear-gradient-color-3: #264c58;
 }
 
 body {
@@ -773,7 +783,7 @@ header {
 
 .details-button-home,
 .site-link {
-  color: #46938c;
+  color: var(--site-primary-color);
   font-weight: 600;
   cursor: pointer;
 }
@@ -788,8 +798,9 @@ header {
   padding-left: unset;
 }
 
-.cardDetail h2 {
+.cardDetail div h2 {
   font-weight: 700;
+  color: var(--site-primary-color);
 }
 
 .cardDetail div div h3 {
@@ -803,18 +814,43 @@ header {
   flex-wrap: wrap;
   flex-direction: row;
 }
-.cardDetail div div div li {
+.cardDetail .techUsedItem li {
   width: fit-content;
-  padding: 1rem !important;
-  margin: 1rem;
+  position: relative;
+  z-index: 1;
+  padding: 0.5rem !important;
+  margin: 1.25rem;
   border-radius: 15px !important;
-  background: linear-gradient(
-    top to bottom,
-    transparent,
-    rgba(255, 255, 255, 0.8)
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8));
+  color: black;
+}
+
+.cardDetail .techUsedItem li::before,
+.cardDetail .techUsedItem li::after {
+  content: "";
+  position: absolute;
+  inset: -1rem;
+  z-index: -1;
+  border: 4px solid black !important;
+  /* var(--button-linear-gradient-color-1),
+    var(--button-linear-gradient-color-2),
+    rgba(0, 0, 0, 0.3),
+    var(--button-linear-gradient-color-2),
+    var(--button-linear-gradient-color-1) */
+  background: conic-gradient(
+    from var(--gradient-angle),
+    white,
+    whitesmoke,
+    rgba(0, 0, 0, 0.3),
+    whitesmoke,
+    white
   );
-  color: var(--site-alternate-color-2);
-  border: 4px solid var(--site-alternate-color-2) !important;
+  border-radius: inherit;
+  animation: rotation 20s linear infinite;
+}
+
+.cardDetail .techUsedItem li::after {
+  filter: blur(1rem);
 }
 
 .cardDetail p {
@@ -1041,12 +1077,12 @@ header {
   }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    --gradient-angle: 360deg;
   }
 }
 
