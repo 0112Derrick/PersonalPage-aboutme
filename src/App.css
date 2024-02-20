@@ -565,27 +565,52 @@ header {
   --_bottom-color: var(--bottom-color, black);
   --_fontWeight: var(--font-weight-header, 400);
   --_fontWeight-text: var(--font-weight-text, 400);
-  --_background-color: var(--background-color, var(--bg-1));
-  background-color: var(--_background-color) !important;
+  /* --_background-color: var(--background-color, var(--bg-1)); */
+  --_background-color: var(
+    --background-color,
+    linear-gradient(
+      30deg,
+      var(--bg-1) 5%,
+      transparent,
+      var(--bg-1) 20%,
+      transparent,
+      var(--bg-1) 5%
+    )
+  );
+  background: var(--_background-color) !important;
   margin-bottom: 0.5rem;
   min-height: 500px;
   width: 400px;
   min-width: 50%;
   padding: 1.25rem;
   text-align: center;
-  border: 2px solid #333;
-  box-shadow: 10px 10px 10px #7a7a7a7a, -0.5rem -0.5rem 5px var(--_shadow);
+  --_border-color: var(--border-color, rgba(52, 125, 193, 0.3));
+  border-left: 2px solid var(--_border-color) !important;
+  border-top: 2px solid var(--_border-color) !important;
+  filter: blur(0.02rem);
+  box-shadow: 10px 10px 10px #7a7a7a7a,
+    -0.5rem -0.5rem 5px -1.5px var(--_shadow);
   border-bottom: 4px solid var(--_bottom-color) !important;
 }
 
 .servicesCard--frontEndDev {
+  /* --site-alternate-color: #87b0b7;
+  --site-alternate-color-2: #60c3bb; */
+  --border-color: rgba(96, 195, 187, 0.3);
   --font-weight-header: 600;
   --font-weight-text: 500;
   --bottom-color: var(--site-alternate-color-2);
 }
 
 .servicesCard--frontEndDev:hover {
-  --background-color: white;
+  --background-color: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(0, 0, 0, 0.3),
+    transparent 40%,
+    rgba(0, 0, 0, 0.5)
+  );
+  filter: blur(0);
   transform: scale(1.05);
   --shadow: var(--site-alternate-color-2);
   animation: grow 1s ease;
@@ -593,13 +618,21 @@ header {
 }
 
 .servicesCard--fullStackDev {
+  --border-color: rgba(135, 176, 183, 0.3);
   --font-weight-header: 600;
   --font-weight-text: 500;
   --bottom-color: var(--site-alternate-color);
 }
 
 .servicesCard--fullStackDev:hover {
-  --background-color: white;
+  --background-color: linear-gradient(
+    30deg,
+    transparent 40%,
+    rgba(0, 0, 0, 0.3),
+    transparent 40%,
+    rgba(0, 0, 0, 0.5)
+  );
+  filter: blur(0);
   transform: scale(1.05);
   --shadow: var(--site-alternate-color);
   animation: grow 1s ease;
@@ -818,33 +851,39 @@ header {
   width: fit-content;
   position: relative;
   z-index: 1;
-  padding: 0.5rem !important;
+  padding: 0.3rem !important;
   margin: 1.25rem;
   border-radius: 15px !important;
-  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.8));
+  background: transparent;
   color: black;
+  border: none;
+}
+
+.cardDetail .techUsedItem li:hover {
+  text-decoration: underline;
 }
 
 .cardDetail .techUsedItem li::before,
 .cardDetail .techUsedItem li::after {
   content: "";
   position: absolute;
-  inset: -1rem;
+  inset: -0.5rem;
   z-index: -1;
-  border: 4px solid black !important;
-  /* var(--button-linear-gradient-color-1),
-    var(--button-linear-gradient-color-2),
-    rgba(0, 0, 0, 0.3),
-    var(--button-linear-gradient-color-2),
-    var(--button-linear-gradient-color-1) */
+  border: 1px solid black !important;
+  border-left: 1px solid white !important;
+  border-top: 1px solid white !important;
   background: conic-gradient(
     from var(--gradient-angle),
     white,
     whitesmoke,
-    rgba(0, 0, 0, 0.3),
+    rgba(54, 96, 126, 0.3),
+    transparent,
+    transparent,
+    rgba(54, 96, 126, 0.3),
     whitesmoke,
     white
   );
+  box-shadow: 2px 1px 5px 1px black, 4px 4px 10px 1px rgba(54, 96, 126, 0.3);
   border-radius: inherit;
   animation: rotation 20s linear infinite;
 }
