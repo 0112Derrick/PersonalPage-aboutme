@@ -42,11 +42,10 @@ const Sparkle = ({
         const x =
           event.clientX - parentRef.current.getBoundingClientRect().left;
         const y = event.clientY + parentRef.current.scrollTop + 25;
-        sparkle(x, y, Math.random() * 2 + 1);
+        sparkle(x, y, Math.random() * 2 + 2);
       }
     };
 
-    
     const sparkle = (x: number, y: number, speed: number) => {
       if (!parentRef.current) {
         return;
@@ -67,7 +66,7 @@ const Sparkle = ({
       let currentScale = 0.9;
       newSparkle.style.transform = `scale(${currentScale})`;
       newSparkle.style.left = x + "px";
-      newSparkle.style.top = y + "px";
+      newSparkle.style.top = y - 20 + "px";
       parentRef.current.appendChild(newSparkle);
 
       setTimeout(() => {
@@ -102,8 +101,6 @@ const Sparkle = ({
 
       setSparkles([...sparkles, newSparkle]);
     };
-
-
 
     if (parentRef.current) {
       parentRef.current.addEventListener("mousemove", handleMouseMove);

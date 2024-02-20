@@ -18,7 +18,7 @@ export default function Footer() {
               xmlnsXlink="http://www.w3.org/1999/xlink"
               viewBox="-143 145 512 512"
               xmlSpace="preserve"
-              className="footer-icon"
+              className="footer-icon linkedin"
             >
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
@@ -42,7 +42,7 @@ export default function Footer() {
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
-              className="footer-icon"
+              className="footer-icon github"
             >
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
@@ -60,13 +60,13 @@ export default function Footer() {
                   strokeWidth="1"
                   fill="none"
                   fillRule="evenodd"
-                  className="footer-icon-inner"
+                  className="footer-icon-inner github"
                 >
                   {" "}
                   <g
                     id="Dribbble-Light-Preview"
                     transform="translate(-140.000000, -7559.000000)"
-                    className="footer-icon-inner"
+                    className="footer-icon-inner github"
                   >
                     {" "}
                     <g id="icons" transform="translate(56.000000, 160.000000)">
@@ -95,7 +95,7 @@ export default function Footer() {
               xmlnsXlink="http://www.w3.org/1999/xlink"
               viewBox="-143 145 512 512"
               xmlSpace="preserve"
-              className="footer-icon"
+              className="footer-icon instagram"
             >
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
