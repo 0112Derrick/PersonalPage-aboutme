@@ -58,37 +58,42 @@ export function Profile() {
                     textMinimized ? "minimized" : "expanded"
                   }`}
                 >
-                  I’m a full-stack developer with a passion for creating
-                  software that makes a positive impact. My love for technology
-                  started with playing RuneScape and Adventure Quest as a kid,
-                  and since then I’ve built computers, games, websites, and
-                  applications using various tools and languages.
-                  <br></br> <br></br>
-                  Some of my recent projects include:<br></br> • A multiplayer
-                  video game built from scratch using TypeScript, HTML, and CSS,
-                  featuring a custom game engine and network connections via
-                  sockets and HTTP requests.<br></br>
-                  <br></br> • A laundromat application that enhances
-                  accessibility and convenience through online payment
-                  transactions built using React, and .NET for the server.
-                  <br></br>
-                  <br></br> • A website for Gee’s Clippers, a local barber shop,
-                  to spotlight the amazing things they bring to the community
-                  with their barbershop/ medical clinic combination. This
-                  project included building an authentication system, a Spanish
-                  translation toggle, and C.M.S abilities. All while being built
-                  from scratch in HTML, CSS, TypeScript.<br></br> <br></br> As a
-                  resident at i.c. stars, I also mentored a team of aspiring
-                  developers in Kansas City, helping them launch their own web
-                  application and secure job placements.
-                  <br></br> <br></br>I’m a self-taught programmer who learned
-                  the ropes through online courses, hands-on projects, all while
-                  working full-time at Amazon. I don’t have a college degree,
-                  but I have a lot of enthusiasm, curiosity, and creativity. I’m
-                  always eager to learn new skills, explore new challenges, and
-                  collaborate with others.<br></br> <br></br> If you’re looking
-                  for a versatile, innovative, and driven developer to join your
-                  team, let’s chat and see how we can work together!
+                  <span>
+                    I’m a full-stack developer with a passion for creating
+                    software that makes a positive impact. My love for
+                    technology started with playing RuneScape and Adventure
+                    Quest as a kid, and since then I’ve built computers, games,
+                    websites, and applications using various tools and
+                    languages.
+                    <br></br> <br></br>
+                    Some of my recent projects include:<br></br> • A multiplayer
+                    video game built from scratch using TypeScript, HTML, and
+                    CSS, featuring a custom game engine and network connections
+                    via sockets and HTTP requests.<br></br>
+                    <br></br> • A laundromat application that enhances
+                    accessibility and convenience through online payment
+                    transactions built using React and .NET for the server.
+                    <br></br>
+                    <br></br> • A website for Gee’s Clippers, a local barber
+                    shop, to spotlight the amazing things they bring to the
+                    community with their barbershop / medical clinic
+                    combination. This project included building an
+                    authentication system, a multi-language translation toggle,
+                    and C.M.S abilities. All while being built from scratch with
+                    TypeScript, NodeJs, and Expressjs.<br></br> <br></br> As a
+                    resident at i.c. stars, I also mentored a team of aspiring
+                    developers in Kansas City, helping them launch their own web
+                    application and secure job placements.
+                    <br></br> <br></br>I’m a self-taught programmer who learned
+                    the ropes through online courses, hands-on projects, all
+                    while working full-time at Amazon. I don’t have a college
+                    degree, but I have a lot of enthusiasm, curiosity, and
+                    creativity. I’m always eager to learn new skills, explore
+                    new challenges, and collaborate with others.<br></br>{" "}
+                    <br></br> If you’re looking for a versatile, innovative, and
+                    driven developer to join your team, let’s chat and see how
+                    we can work together!
+                  </span>
                 </p>
               </Col>
             </>
@@ -98,14 +103,17 @@ export function Profile() {
                 id="aboutMe_text"
                 className={`text text-dark-background  "minimized" `}
               >
-                I’m a self-taught programmer who learned the ropes through
-                online courses, hands-on projects, all while working full-time
-                at Amazon. I don’t have a college degree, but I have a lot of
-                enthusiasm, curiosity, and creativity. I’m always eager to learn
-                new skills, explore new challenges, and collaborate with others.
-                <br></br> <br></br> If you’re looking for a versatile,
-                innovative, and driven developer to join your team, let’s chat
-                and see how we can work together!
+                <span>
+                  I’m a self-taught programmer who learned the ropes through
+                  online courses, hands-on projects, all while working full-time
+                  at Amazon. I don’t have a college degree, but I have a lot of
+                  enthusiasm, curiosity, and creativity. I’m always eager to
+                  learn new skills, explore new challenges, and collaborate with
+                  others.
+                  <br></br> <br></br> If you’re looking for a versatile,
+                  innovative, and driven developer to join your team, let’s chat
+                  and see how we can work together!
+                </span>
               </p>
             </Col>
           )}

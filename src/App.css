@@ -495,11 +495,9 @@ header {
   z-index: -3;
 }
 
-.text {
-  /* rgba(0, 0, 0, 0.7) */
+/* .text {
   position: relative;
   z-index: 1;
-  /* background-color: var(--site-alternate-color); */
   text-transform: uppercase;
   padding: 1.25rem;
   font-size: large;
@@ -522,6 +520,55 @@ header {
   );
   filter: blur(1rem);
   inset: 0;
+} */
+
+.text {
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  padding: 1.25rem;
+  font-size: large;
+  border-radius: 5px;
+  width: 85%;
+  overflow: hidden;
+  box-shadow: 3px 3px 5px 1px black;
+}
+
+.text::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  top: 0%;
+  left: -5%;
+  /* z-index: -1; */
+  height: 80%;
+  width: 120%;
+  padding: 2px;
+  background: linear-gradient(
+    to right,
+    var(--site-alternate-color),
+    var(--site-alternate-color-2),
+    var(--site-primary-color)
+  );
+  animation: rotate 20s linear infinite forwards;
+  box-shadow: -2px -2px 5px 1px black;
+}
+
+.text::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  background: black;
+  filter: blur(0.1rem);
+  /* z-index: 2; */
+}
+
+.text span {
+  z-index: 5;
+  position: inherit;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 .text-align-left {
@@ -612,6 +659,10 @@ header {
   border-bottom: 4px solid var(--_bottom-color) !important;
 }
 
+.servicesCard:hover {
+  z-index: 3;
+}
+
 .servicesCard--frontEndDev {
   /* --site-alternate-color: #87b0b7;
   --site-alternate-color-2: #60c3bb; */
@@ -623,7 +674,7 @@ header {
 
 .servicesCard--frontEndDev:hover {
   --background-color: linear-gradient(
-    120deg,
+    0deg,
     transparent 40%,
     rgba(0, 0, 0, 0.3),
     transparent 40%,
@@ -998,6 +1049,9 @@ header {
 
 .instagram:hover {
   --fill: #cd486b;
+  fill: currentColor;
+  animation: instagram 10s linear infinite;
+  animation-fill-mode: forwards;
 }
 
 .github:hover {
@@ -1015,6 +1069,17 @@ header {
   justify-content: center;
   text-align: center;
   flex-direction: column;
+}
+
+@keyframes instagram {
+  0%,
+  100% {
+    fill: #fbad50;
+  }
+  40%,
+  80% {
+    fill: #cd486b;
+  }
 }
 
 @keyframes colorChange {
@@ -1149,6 +1214,15 @@ header {
   }
   100% {
     --gradient-angle: 360deg;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

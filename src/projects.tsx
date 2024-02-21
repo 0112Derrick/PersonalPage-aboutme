@@ -53,7 +53,7 @@ export const projectCards = [
     releaseDate: "N/A",
     siteUrl: "https://github.com/0112Derrick/GeesClippersTechTitans-Personal",
     description:
-      "I worked on a project during my time with i.c.stars that revitalized a barbershop's corporate website. This involved integrating videos and implementing a content management system, enabling barbers to upload haircut videos and administrators to post real-time events. Additionally, the system included a review feature, facilitating communication between the barbershop and its community.",
+      "I worked on a project during my time with i.c.stars that revitalized a barbershop's corporate website. This involved integrating videos and implementing a content management system, enabling barbers to upload haircut photos and administrators to post real-time events. Additionally, the system included a review feature, facilitating communication between the barbershop and its community.",
     techUsed: ["HTML5", "CSS3", "TypeScript", "NodeJs", "ExpressJS"],
     filters: [
       "javascript",
