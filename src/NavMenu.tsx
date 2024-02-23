@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Container, Image, Row } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 
 function scrollIntoView(ele: any) {
@@ -33,7 +33,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
           activeKey="/home"
           // onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
         >
-          <div className="grid width-100 grid-col-40-repeat-auto align-items-center justify-start">
+          <div className="grid width-100 grid-col-30-repeat-auto align-items-center justify-start">
             <Nav.Item>
               <Nav.Link
                 onClick={() => {
@@ -141,6 +141,11 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                 }}
               >
                 Skills
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="link-6" href="/#contact">
+                Contact Me
               </Nav.Link>
             </Nav.Item>
           </div>
@@ -269,6 +274,11 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                         }}
                       >
                         Skills
+                      </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="link-6" href="/#contact">
+                        Contact Me
                       </Nav.Link>
                     </Nav.Item>
                   </Row>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
+import ServiceCard from "./ServiceCard";
 
 export function Services() {
   return (
@@ -19,45 +20,40 @@ export function Services() {
         </Col>
       </Row>
       <hr></hr>
-      <Row className="flex align-items-center justify-center padding-md">
+      <Row className="flex align-items-center justify-center padding-md gap">
         <Col className="padding-inline-sm flex align-items-center justify-center">
-          <Card className="servicesCard servicesCard--frontEndDev padding-sm card-colored-bottom-1">
-            <Card.Img
-              variant="top"
-              className="servicesCardImage rounded"
-              src={`${process.env.PUBLIC_URL}/images/monitor02.jpg`}
-            />
-            <Card.Body className="rounded">
-              <h3 className="servicesCard-title padding-sm">
-                Frontend <br></br> Development
-              </h3>
-              <Card.Text className="servicesCard-text">
-                Skilled in frontend development, I am enthusiastic about
+          <ServiceCard
+            className="servicesCard--frontEndDev"
+            hrefLink="/#contact"
+            cardImg={`${process.env.PUBLIC_URL}/images/monitor02.jpg`}
+            cardBodyText={`Skilled in frontend development, I am enthusiastic about
                 constructing interactive and mobile-responsive user interfaces
-                that captivate and delight.
-              </Card.Text>
-            </Card.Body>
-          </Card>
+                that captivate and delight.`}
+            cardTitleText={`Frontend\n Development`}
+          ></ServiceCard>
         </Col>
 
         <Col className="padding-inline-sm flex align-items-center justify-center">
-          <Card className="servicesCard servicesCard--fullStackDev padding-sm card-colored-bottom-2">
-            <Card.Img
-              variant="top"
-              className="servicesCardImage rounded"
-              src={`${process.env.PUBLIC_URL}/images/fullstack.jpg`}
-            />
-            <Card.Body className="rounded">
-              <h3 className="servicesCard-title padding-sm">
-                Fullstack <br></br> Development
-              </h3>
-              <Card.Text className="servicesCard-text">
-                I'm proficient in full-stack development, I am driven by the
+          <ServiceCard
+            className="servicesCard--backEndDev"
+            hrefLink="/#contact"
+            cardImg={`${process.env.PUBLIC_URL}/images/backEndDev.jpg`}
+            cardBodyText={` I love to design APIs that integrate the frontend and the
+                backend in a data driven architecture.`}
+            cardTitleText={` Backend \nDevelopment`}
+          ></ServiceCard>
+        </Col>
+
+        <Col className="padding-inline-sm flex align-items-center justify-center">
+          <ServiceCard
+            className="servicesCard--fullStackDev"
+            hrefLink="/#contact"
+            cardImg={`${process.env.PUBLIC_URL}/images/fullstack.jpg`}
+            cardBodyText="I'm proficient in full-stack development, I am driven by the
                 challenge of creating robust, data-powered web applications
-                designed to grow seamlessly.
-              </Card.Text>
-            </Card.Body>
-          </Card>
+                designed to grow seamlessly."
+            cardTitleText={`Fullstack \n Development`}
+          ></ServiceCard>
         </Col>
       </Row>
     </Container>

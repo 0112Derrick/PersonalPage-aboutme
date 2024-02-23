@@ -19,6 +19,7 @@ import { CardDetail } from "./CardDetail";
 
 import { Skills } from "./Skills";
 import Footer from "./Footer";
+import ContactForm from "./ContactForm";
 
 export function ScrollIntoView() {
   const location = window.location.search;
@@ -95,9 +96,20 @@ function App() {
             <>
               <NavMenu onDetailsPage={true}></NavMenu>
               <CardDetail></CardDetail>
+              <Footer></Footer>
             </>
           }
         />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <NavMenu onDetailsPage={true}></NavMenu>
+              <ContactForm></ContactForm>
+              <Footer></Footer>
+            </>
+          }
+        ></Route>
       </Routes>
     </Router>
   );

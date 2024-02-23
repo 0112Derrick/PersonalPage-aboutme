@@ -43,7 +43,13 @@ export function Home() {
                 <h1 className="parallax-text">
                   Derrick Williams <br></br>
                   Software Development
+                  <br></br>
+                  <a className="parallax-call-to-action" href="/#contact">
+                    Contact Me
+                  </a>
                 </h1>
+
+                <h3></h3>
               </div>
 
               <img
