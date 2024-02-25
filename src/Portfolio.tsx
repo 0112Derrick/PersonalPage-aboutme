@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { useMediaQuery } from "react-responsive";
 import { PortfolioCard } from "./PortfolioCard";
 import { projectCards } from "./projects";
 
@@ -10,6 +11,11 @@ import { projectCards } from "./projects";
 export function Portfolio() {
   const [filterSetting, setFilterSetting] = useState("");
   const [playAnimation, setPlayAnimation] = useState(false);
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1000px)",
+  });
+
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
 
   const listProjectCards =
     projectCards && Array.isArray(projectCards)
@@ -36,7 +42,7 @@ export function Portfolio() {
               </Col>
             );
           }
-        return null;
+          return null;
         })
       : null;
 
@@ -60,94 +66,136 @@ export function Portfolio() {
       <hr></hr>
       <Row className="flex align-items-center justify-center fluid gap padding-md">
         <div className="portfolio-button-container">
-          <Button
-            onClick={() => {
-              setFilterSetting("");
-              setPlayAnimation(true);
-              setTimeout(() => {
-                setPlayAnimation(false);
-              }, 1000);
-            }}
-          >
-            All
-          </Button>
-          <Button
-            onClick={() => {
-              setFilterSetting("fullstack");
-              setPlayAnimation(true);
-              setTimeout(() => {
-                setPlayAnimation(false);
-              }, 1000);
-            }}
-          >
-            FullStack
-          </Button>
-          <Button
-            onClick={() => {
-              setFilterSetting("nodejs");
-              setPlayAnimation(true);
-              setTimeout(() => {
-                setPlayAnimation(false);
-              }, 1000);
-            }}
-          >
-            NodeJS
-          </Button>
-          <Button
-            onClick={() => {
-              setFilterSetting("asp.net");
-              setPlayAnimation(true);
-              setTimeout(() => {
-                setPlayAnimation(false);
-              }, 1000);
-            }}
-          >
-            Asp.Net
-          </Button>
-          <Button
-            onClick={() => {
-              setFilterSetting("express");
-              setPlayAnimation(true);
-              setTimeout(() => {
-                setPlayAnimation(false);
-              }, 1000);
-            }}
-          >
-            Express
-          </Button>
-          <Button
-            onClick={() => {
-              setFilterSetting("wordpress");
-              setPlayAnimation(true);
-              setTimeout(() => {
-                setPlayAnimation(false);
-              }, 1000);
-            }}
-          >
-            Wordpress
-          </Button>
-          <Button
-            onClick={() => {
-              setFilterSetting("frontend");
-              setPlayAnimation(true);
-              setTimeout(() => {
-                setPlayAnimation(false);
-              }, 1000);
-            }}
-          >
-            Front-End
-          </Button>
-          <Button
-            onClick={() => {
-              setFilterSetting("typescript");
-              setPlayAnimation(true);
-              setTimeout(() => {
-                setPlayAnimation(false);
-              }, 1000);
-            }}
-          >
-            TypeScript
-          </Button>
+          {isDesktopOrLaptop ? (
+            <>
+              <Button
+                onClick={() => {
+                  setFilterSetting("");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                All
+              </Button>
+              <Button
+                onClick={() => {
+                  setFilterSetting("fullstack");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                FullStack
+              </Button>
+              <Button
+                onClick={() => {
+                  setFilterSetting("nodejs");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                NodeJS
+              </Button>
+              <Button
+                onClick={() => {
+                  setFilterSetting("asp.net");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                Asp.Net
+              </Button>
+              <Button
+                onClick={() => {
+                  setFilterSetting("express");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                Express
+              </Button>
+              <Button
+                onClick={() => {
+                  setFilterSetting("wordpress");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                Wordpress
+              </Button>
+              <Button
+                onClick={() => {
+                  setFilterSetting("frontend");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                Front-End
+              </Button>
+              <Button
+                onClick={() => {
+                  setFilterSetting("typescript");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                TypeScript
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                onClick={() => {
+                  setFilterSetting("");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                All
+              </Button>
+
+              <Button
+                onClick={() => {
+                  setFilterSetting("fullstack");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                FullStack
+                </Button>
+                
+              <Button
+                onClick={() => {
+                  setFilterSetting("frontend");
+                  setPlayAnimation(true);
+                  setTimeout(() => {
+                    setPlayAnimation(false);
+                  }, 1000);
+                }}
+              >
+                Front-End
+              </Button>
+            </>
+          )}
         </div>
       </Row>
       <Row className={`${playAnimation ? "dropDownFadeAwayAnimation" : ""}`}>

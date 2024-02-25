@@ -152,7 +152,10 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
         </Nav>
       )}
       {isTabletOrMobile && (
-        <Nav className="grid grid-mobile-nav padding-sm width-100 align-items-center">
+        <Nav
+          className="grid grid-mobile-nav padding-sm width-100 align-items-center"
+          activeKey="/home"
+        >
           <Nav.Item>
             <Nav.Link
               onClick={() => {
@@ -205,10 +208,9 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                       <Nav.Link
                         onClick={() => {
                           console.log(
-                            `window:\n origin: ${window.location.origin}\n href:${window.location.href} `
+                            `window:\n origin: ${window.location.origin}\n href:${window.location.href}`
                           );
 
-                          console.log();
                           if (
                             !onDetailsPage &&
                             window.location.href.includes(
@@ -219,6 +221,11 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                           } else {
                             window.location.href = pageUrl;
                           }
+
+                          setPlayOpenAnimation(false);
+                          setTimeout(() => {
+                            setIsNavMenuOpen(false);
+                          }, 1000);
                         }}
                       >
                         Home
@@ -232,6 +239,10 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                           } else {
                             scrollIntoView("#profile_section");
                           }
+                          setPlayOpenAnimation(false);
+                          setTimeout(() => {
+                            setIsNavMenuOpen(false);
+                          }, 1000);
                         }}
                       >
                         Profile
@@ -245,6 +256,10 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                           } else {
                             scrollIntoView("#services_section");
                           }
+                          setPlayOpenAnimation(false);
+                          setTimeout(() => {
+                            setIsNavMenuOpen(false);
+                          }, 1000);
                         }}
                       >
                         Services
@@ -258,6 +273,10 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                           } else {
                             scrollIntoView("#portfolio_section");
                           }
+                          setPlayOpenAnimation(false);
+                          setTimeout(() => {
+                            setIsNavMenuOpen(false);
+                          }, 1000);
                         }}
                       >
                         Portfolio
@@ -271,13 +290,26 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                           } else {
                             scrollIntoView("#skills_section");
                           }
+                          setPlayOpenAnimation(false);
+                          setTimeout(() => {
+                            setIsNavMenuOpen(false);
+                          }, 1000);
                         }}
                       >
                         Skills
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="link-6" href="/#contact">
+                      <Nav.Link
+                        eventKey="link-6"
+                        href="/#contact"
+                        onClick={() => {
+                          setPlayOpenAnimation(false);
+                          setTimeout(() => {
+                            setIsNavMenuOpen(false);
+                          }, 1000);
+                        }}
+                      >
                         Contact Me
                       </Nav.Link>
                     </Nav.Item>

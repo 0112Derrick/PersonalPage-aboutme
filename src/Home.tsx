@@ -9,9 +9,12 @@ export function Home() {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1000px)",
   });
-  const containerRef = React.useRef(null);
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+
+  const containerRef = React.useRef(null);
+
+  
 
   return (
     <>

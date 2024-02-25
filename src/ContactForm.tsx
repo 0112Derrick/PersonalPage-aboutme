@@ -1,4 +1,4 @@
-import { Col, Row, Container, Alert } from "react-bootstrap";
+import { Col, Row, Container, Alert, Spinner } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
@@ -6,11 +6,13 @@ import { useState } from "react";
 function ContactForm() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [formSubmissionInProgress, setFormSubmissionInProgress] =
+    useState(false);
   const siteUrl = "/";
 
   return (
     <Container
-      className="contact-form-section padding-md margin-inline-sm rounded"
+      className="contact-form-section padding-md margin-inline-md rounded"
       fluid
     >
       <Row className="padding-sm">
@@ -35,6 +37,7 @@ function ContactForm() {
           <Form
             onSubmit={async (e) => {
               e.preventDefault();
+              setFormSubmissionInProgress(true);
               console.log(e.currentTarget);
               try {
                 const formData = {
@@ -68,6 +71,8 @@ function ContactForm() {
                 setTimeout(() => {
                   setFormSubmitted(false);
                   setSubmitSuccess(false);
+                  setFormSubmissionInProgress(false);
+                  window.location.href = "/";
                 }, 3000);
               } catch (e) {
                 console.log("error: ", e);
@@ -77,13 +82,17 @@ function ContactForm() {
                 setTimeout(() => {
                   setFormSubmitted(false);
                   setSubmitSuccess(false);
+                  setFormSubmissionInProgress(false);
+                  alert(
+                    "Try again. If the problem persist reach out to the dev team on linkedin."
+                  );
                 }, 3000);
               }
             }}
           >
             <Form.Group className="mb-3" controlId="formOptions">
               <Form.Label>How Can I Help You?</Form.Label>
-              <Form.Select>
+              <Form.Select disabled={formSubmissionInProgress ? true : false}>
                 <option>Job Opportunities</option>
                 <option>Collaboration Opportunities</option>
                 <option>Technical Support</option>
@@ -99,6 +108,7 @@ function ContactForm() {
               <Form.Control
                 type="text"
                 placeholder="Enter your organization's name."
+                disabled={formSubmissionInProgress ? true : false}
               />
               <Form.Text className="text-muted">
                 Enter the organization you are associated with if applicable.
@@ -107,13 +117,21 @@ function ContactForm() {
 
             <Form.Group className="mb-3" controlId="formName">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter your full name." />
+              <Form.Control
+                type="text"
+                placeholder="Enter your full name."
+                disabled={formSubmissionInProgress ? true : false}
+              />
               <Form.Text className="text-muted">Enter your name.</Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                disabled={formSubmissionInProgress ? true : false}
+              />
               <Form.Text className="text-muted">
                 The email I can get back in contact with you at.
               </Form.Text>
@@ -125,10 +143,15 @@ function ContactForm() {
                 as="textarea"
                 placeholder="Leave a comment here."
                 style={{ height: "100px" }}
+                disabled={formSubmissionInProgress ? true : false}
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button
+              variant="primary"
+              type="submit"
+              disabled={formSubmissionInProgress ? true : false}
+            >
               Submit
             </Button>
           </Form>
@@ -145,6 +168,16 @@ function ContactForm() {
               Failed to send form.
             </Alert>
           )
+        ) : formSubmissionInProgress ? (
+          <Alert
+            className="flex gap justify-content-center align-items-center"
+            variant="info"
+          >
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            <b>Sending!</b>
+          </Alert>
         ) : null}
       </Row>
     </Container>
