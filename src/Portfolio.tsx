@@ -15,8 +15,6 @@ export function Portfolio() {
     query: "(min-width: 1000px)",
   });
 
-
-
   const listProjectCards =
     projectCards && Array.isArray(projectCards)
       ? projectCards.map((projectCard) => {
@@ -181,8 +179,8 @@ export function Portfolio() {
                 }}
               >
                 FullStack
-                </Button>
-                
+              </Button>
+
               <Button
                 onClick={() => {
                   setFilterSetting("frontend");

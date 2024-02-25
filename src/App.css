@@ -83,8 +83,6 @@ body {
   gap: 0.5rem;
 }
 
-
-
 .width-max {
   width: max-content;
 }
@@ -1306,10 +1304,20 @@ div [role="alert"] {
   .nav {
     height: unset;
   }
+  .portfolio-button-container {
+    grid-template-columns: repeat(3, 9rem);
+  }
+  .portfolio-button-container button {
+    padding: 1rem 1rem;
+  }
 }
 
 /* Media query for screens smaller than 768px */
 @media screen and (max-width: 768px) {
+  .portfolio-button-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .cardDetail {
     position: unset;
     transform: translate(0, 0);
@@ -1320,9 +1328,6 @@ div [role="alert"] {
     flex-direction: column;
   }
 
-  .portfolio-button-container {
-    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
-  }
   .grid-col-repeat-3-auto {
     grid-template-columns: auto;
     grid-template-rows: auto;
