@@ -15,7 +15,7 @@ export function Portfolio() {
     query: "(min-width: 1000px)",
   });
 
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
+
 
   const listProjectCards =
     projectCards && Array.isArray(projectCards)

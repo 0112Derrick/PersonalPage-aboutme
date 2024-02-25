@@ -83,7 +83,7 @@ export function CardDetail() {
       // Handle case where card is not found
       setCardDetails(null);
     }
-  }, [id]);
+  }, [id,isTabletOrMobile]);
 
   return cardDetails;
 }

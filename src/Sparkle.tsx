@@ -14,6 +14,7 @@ const Sparkle = ({
   const [sparkles, setSparkles] = useState<HTMLDivElement[]>([]);
 
   useEffect(() => {
+    const ref = parentRef.current;
     const createDiv = (shape: string, size: number) => {
       let colour = [
         "#84eef5",
@@ -107,8 +108,8 @@ const Sparkle = ({
     }
 
     return () => {
-      if (parentRef.current) {
-        parentRef.current.removeEventListener("mousemove", handleMouseMove);
+      if (ref) {
+        ref.removeEventListener("mousemove", handleMouseMove);
       }
     };
   }, [parentRef, maxSparkles, eraseTime, sparkles]);

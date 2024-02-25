@@ -8,7 +8,7 @@ import {
   HashRouter as Router,
   Route,
   Routes,
-  useLocation,
+
 } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 import { Home } from "./Home";

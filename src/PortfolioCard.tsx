@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import React, {  useEffect, useState } from "react";
+import {  Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 interface portfolioCard {
@@ -36,7 +36,7 @@ export function PortfolioCard({
     } else {
       setModifiedClassName(cardName.toLowerCase());
     }
-  }, [cardName]);
+  }, [cardName, cardNameArr]);
 
   return (
     <Card

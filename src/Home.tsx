@@ -3,7 +3,7 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import Sparkle from "./Sparkle";
-import MouseAsImage from "./MouseAsImage";
+
 
 export function Home() {
   const isDesktopOrLaptop = useMediaQuery({
@@ -51,8 +51,6 @@ export function Home() {
                     Contact Me
                   </a>
                 </h1>
-
-                <h3></h3>
               </div>
 
               <img
