@@ -69,7 +69,7 @@ export const projectCards = [
     id: 4,
     cardName: "Wizards Dream",
     techStack: "Fullstack",
-    imageUrl: `${process.env.PUBLIC_URL}/images/castle.jpg`,
+    imageUrl: `${process.env.PUBLIC_URL}/images/castle.webp`,
     released: false,
     releaseDate: "N/A: In Development",
     siteUrl: "https://github.com/0112Derrick/Wizards-Dream",
