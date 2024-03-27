@@ -3,8 +3,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useState, useRef, useEffect } from "react";
 import Dompurify from "dompurify";
+import { useForm } from "react-hook-form";
 import checkFormSubmissionLimit from "../browserCookie";
 import { fetchUserIP } from "../getUserData";
+import { useNavigate } from "react-router-dom";
 
 function ContactForm() {
   useEffect(() => {
@@ -15,6 +17,12 @@ function ContactForm() {
     });
   }, []);
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formSubmissionInProgress, setFormSubmissionInProgress] =
@@ -22,20 +30,27 @@ function ContactForm() {
   const siteUrl = "/";
   const myForm = useRef(null);
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  const navigate = useNavigate();
 
-  async function handleSubmit(e: any) {
-    e.preventDefault();
-
+  async function onSubmit(e: any) {
     // Capture form values before awaiting fetchUserData
-    const formOptions = e.currentTarget?.formOptions.value;
-    const formOrganization = e.currentTarget?.formOrganization.value
-      ? e.currentTarget?.formOrganization.value
-      : "N/A";
-    const formName = e.currentTarget?.formName.value;
-    const formEmail = e.currentTarget?.formEmail.value;
-    const formEmailBody = e.currentTarget?.formEmailBody.value;
+    // const formOptions = e.currentTarget?.formOptions.value;
+    // const formOrganization = e.currentTarget?.formOrganization.value
+    //   ? e.currentTarget?.formOrganization.value
+    //   : "N/A";
+    // const formName = e.currentTarget?.formName.value;
+    // const formEmail = e.currentTarget?.formEmail.value;
+    // const formEmailBody = e.currentTarget?.formEmailBody.value;
 
-    const isEmail = emailRegex.test(e.currentTarget?.formEmail.value);
+    // const isEmail = emailRegex.test(e.currentTarget?.formEmail.value);
+
+    const formOptions = e.formOptions;
+    const formOrganization = e.formOrganization ? e.formOrganization : "N/A";
+    const formName = e.formName;
+    const formEmail = e.formEmail;
+    const formEmailBody = e.formEmailBody;
+
+    const isEmail = emailRegex.test(e.formEmail);
 
     if (!isEmail) {
       alert("Invalid Email.");
@@ -87,7 +102,8 @@ function ContactForm() {
         setFormSubmitted(false);
         setSubmitSuccess(false);
         setFormSubmissionInProgress(false);
-        window.location.href = "/";
+        // window.location.href = "/";
+        navigate(siteUrl);
       }, 3000);
     } catch (e) {
       console.log("error: ", e);
@@ -114,7 +130,8 @@ function ContactForm() {
           <div
             className="details-button-home-contact-form"
             onClick={() => {
-              window.location.href = siteUrl;
+              // window.location.href = siteUrl;
+              navigate(siteUrl);
             }}
           >
             Back To Home
@@ -128,12 +145,14 @@ function ContactForm() {
       </Row>
       <Row className="padding-sm">
         <Col>
-          <Form ref={myForm} onSubmit={handleSubmit}>
+          <Form ref={myForm} onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3" controlId="formOptions">
               <Form.Label>How Can I Help You?</Form.Label>
               <Form.Select
                 disabled={formSubmissionInProgress ? true : false}
-                required
+                // required
+                aria-invalid={errors.formOptions ? "true" : "false"}
+                {...register("formOptions", { required: true })}
               >
                 <option>Job Opportunities</option>
                 <option>Collaboration Opportunities</option>
@@ -144,6 +163,11 @@ function ContactForm() {
                 <option>General Inquiries</option>
               </Form.Select>
             </Form.Group>
+            {errors.formOptions && errors.formOptions.type === "required" && (
+              <span role="alert" className="redText">
+                <br></br> This is required
+              </span>
+            )}
 
             <Form.Group className="mb-3" controlId="formOrganization">
               <Form.Label>Organization</Form.Label>
@@ -151,10 +175,18 @@ function ContactForm() {
                 type="text"
                 placeholder="Enter your organization's name."
                 disabled={formSubmissionInProgress ? true : false}
+                aria-invalid={errors.formOrganization ? "true" : "false"}
+                {...register("formOrganization")}
               />
 
               <Form.Text className="text-muted">
                 Enter the organization you are associated with if applicable.
+                {errors.formOrganization &&
+                  errors.formOrganization.type === "required" && (
+                    <span role="alert" className="redText">
+                      <br></br>This is required
+                    </span>
+                  )}
               </Form.Text>
             </Form.Group>
 
@@ -163,22 +195,43 @@ function ContactForm() {
               <Form.Control
                 type="text"
                 placeholder="Enter your full name."
-                required
+                // required
                 disabled={formSubmissionInProgress ? true : false}
+                aria-invalid={errors.formName ? "true" : "false"}
+                {...register("formName", { required: true, maxLength: 30 })}
               />
-              <Form.Text className="text-muted">Enter your name.</Form.Text>
+              <Form.Text className="text-muted">
+                Enter your name.
+                {errors.formName && errors.formName.type === "required" && (
+                  <span role="alert" className="redText">
+                    <br></br>This is required
+                  </span>
+                )}
+                {errors.formName && errors.formName.type === "maxLength" && (
+                  <span role="alert" className="redText">
+                    <br></br>Max length exceeded
+                  </span>
+                )}
+              </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Email Address</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Enter email"
-                required
+                // required
                 disabled={formSubmissionInProgress ? true : false}
+                aria-invalid={errors.formEmail ? "true" : "false"}
+                {...register("formEmail", { required: true })}
               />
               <Form.Text className="text-muted">
                 The email I can get back in contact with you at.
+                {errors.formEmail && errors.formEmail.type === "required" && (
+                  <span role="alert" className="redText">
+                    <br></br>This is required
+                  </span>
+                )}
               </Form.Text>
             </Form.Group>
 
@@ -188,9 +241,19 @@ function ContactForm() {
                 as="textarea"
                 placeholder="Leave a comment here."
                 style={{ height: "100px" }}
-                required
+                // required
                 disabled={formSubmissionInProgress ? true : false}
+                aria-invalid={errors.formEmailBody ? "true" : "false"}
+                {...register("formEmailBody", { required: true })}
               />
+              <Form.Text>
+                {errors.formEmailBody &&
+                  errors.formEmailBody.type === "required" && (
+                    <span role="alert" className="redText">
+                      This is required<br></br>
+                    </span>
+                  )}
+              </Form.Text>
             </Form.Group>
 
             <Button
@@ -203,6 +266,7 @@ function ContactForm() {
           </Form>
         </Col>
       </Row>
+
       <Row>
         {formSubmitted ? (
           submitSuccess ? (

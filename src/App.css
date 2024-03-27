@@ -80,6 +80,10 @@ body {
   background-color: var(--bg-1);
 }
 
+.redText {
+  color: red;
+}
+
 .gap {
   gap: 0.5rem;
 }

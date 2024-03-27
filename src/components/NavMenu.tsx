@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { Container, Image, Row } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
@@ -10,17 +11,30 @@ function scrollIntoView(ele: any) {
   }
 }
 
+enum WindowLocations {
+  Service_Section = "services_section",
+  Portfolio_Section = "portfolio_section",
+  Skills_Section = "skills_section",
+  Profile_Section = "profile_section",
+}
+
 interface NavMenuI {
   onDetailsPage?: boolean | undefined;
 }
 
 function NavMenu({ onDetailsPage }: NavMenuI) {
+  const navigate = useNavigate();
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1000px)",
   });
   const pageUrl = "/";
-  if (onDetailsPage) {
-  }
+  const closeMobileNavMenu = () => {
+    setPlayOpenAnimation(false);
+    setTimeout(() => {
+      setIsNavMenuOpen(false);
+    }, 1000);
+  };
+
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1000px)" });
 
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
@@ -37,11 +51,6 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
             <Nav.Item>
               <Nav.Link
                 onClick={() => {
-                  console.log(
-                    `window:\n origin: ${window.location.origin}\n href:${window.location.href} `
-                  );
-
-                  console.log();
                   if (
                     !onDetailsPage &&
                     window.location.href.includes(window.location.origin)
@@ -51,7 +60,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                       .querySelector("main")
                       ?.scrollTo({ top: 0, behavior: "smooth" });
                   } else {
-                    window.location.href = pageUrl;
+                    navigate(pageUrl);
                   }
                 }}
               >
@@ -66,10 +75,6 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
               <Nav.Link
                 eventKey="link-1"
                 onClick={() => {
-                  console.log(
-                    `window:\n origin: ${window.location.origin}\n href:${window.location.href}`
-                  );
-
                   console.log();
                   if (
                     !onDetailsPage &&
@@ -80,7 +85,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                       .querySelector("main")
                       ?.scrollTo({ top: 0, behavior: "smooth" });
                   } else {
-                    window.location.href = pageUrl;
+                    navigate(pageUrl);
                   }
                 }}
               >
@@ -91,11 +96,13 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
               <Nav.Link
                 eventKey="link-3"
                 onClick={() => {
-                  if (onDetailsPage) {
-                    window.location.href = `${pageUrl}?scrollTo=services_section`;
-                  } else {
-                    scrollIntoView("#services_section");
-                  }
+                  onDetailsPage
+                    ? navigate(pageUrl, {
+                        state: { scrollTo: WindowLocations.Service_Section },
+                        replace: true,
+                      })
+                    : scrollIntoView(`#${WindowLocations.Service_Section}`);
+                  // window.location.href = `${pageUrl}?scrollTo=services_section`;
                 }}
               >
                 Services
@@ -105,11 +112,13 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
               <Nav.Link
                 eventKey="link-4"
                 onClick={() => {
-                  if (onDetailsPage) {
-                    window.location.href = `${pageUrl}?scrollTo=portfolio_section`;
-                  } else {
-                    scrollIntoView("#portfolio_section");
-                  }
+                  onDetailsPage
+                    ? navigate(pageUrl, {
+                        state: { scrollTo: WindowLocations.Portfolio_Section },
+                        replace: true,
+                      })
+                    : scrollIntoView(`#${WindowLocations.Portfolio_Section}`);
+                  // window.location.href = `${pageUrl}?scrollTo=portfolio_section`;
                 }}
               >
                 Portfolio
@@ -119,11 +128,13 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
               <Nav.Link
                 eventKey="link-5"
                 onClick={() => {
-                  if (onDetailsPage) {
-                    window.location.href = `${pageUrl}?scrollTo=skills_section`;
-                  } else {
-                    scrollIntoView("#skills_section");
-                  }
+                  onDetailsPage
+                    ? navigate(pageUrl, {
+                        state: { scrollTo: WindowLocations.Skills_Section },
+                        replace: true,
+                      })
+                    : scrollIntoView(`#${WindowLocations.Skills_Section}`);
+                  // window.location.href = `${pageUrl}?scrollTo=skills_section`;
                 }}
               >
                 Skills
@@ -133,11 +144,13 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
               <Nav.Link
                 eventKey="link-2"
                 onClick={() => {
-                  if (onDetailsPage) {
-                    window.location.href = `${pageUrl}?scrollTo=profile_section`;
-                  } else {
-                    scrollIntoView("#profile_section");
-                  }
+                  onDetailsPage
+                    ? navigate(pageUrl, {
+                        state: { scrollTo: WindowLocations.Profile_Section },
+                        replace: true,
+                      })
+                    : scrollIntoView(`#${WindowLocations.Profile_Section}`);
+                  //  window.location.href = `${pageUrl}?scrollTo=profile_section`;
                 }}
               >
                 About
@@ -159,19 +172,15 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
           <Nav.Item>
             <Nav.Link
               onClick={() => {
-                console.log(
-                  `window:\n origin: ${window.location.origin}\n href:${window.location.href}`
-                );
-
                 console.log();
-                if (
-                  !onDetailsPage &&
-                  window.location.href.includes(window.location.origin)
-                ) {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                } else {
-                  window.location.href = pageUrl;
-                }
+
+                !onDetailsPage &&
+                window.location.href.includes(window.location.origin)
+                  ? window.scrollTo({ top: 0, behavior: "smooth" })
+                  : // window.location.href = pageUrl;
+                    navigate(pageUrl);
+
+                if (isNavMenuOpen) closeMobileNavMenu();
               }}
             >
               <img
@@ -189,10 +198,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                     className="nav-mobile-menu-icon"
                     src={`${process.env.PUBLIC_URL}/images/navMenuClosed.svg`}
                     onClick={() => {
-                      setPlayOpenAnimation(false);
-                      setTimeout(() => {
-                        setIsNavMenuOpen(false);
-                      }, 1000);
+                      closeMobileNavMenu();
                     }}
                   ></Image>
                 </div>
@@ -207,25 +213,12 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                     <Nav.Item>
                       <Nav.Link
                         onClick={() => {
-                          console.log(
-                            `window:\n origin: ${window.location.origin}\n href:${window.location.href}`
-                          );
+                          !onDetailsPage &&
+                          window.location.href.includes(window.location.origin)
+                            ? window.scrollTo({ top: 0, behavior: "smooth" })
+                            : navigate(pageUrl);
 
-                          if (
-                            !onDetailsPage &&
-                            window.location.href.includes(
-                              window.location.origin
-                            )
-                          ) {
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          } else {
-                            window.location.href = pageUrl;
-                          }
-
-                          setPlayOpenAnimation(false);
-                          setTimeout(() => {
-                            setIsNavMenuOpen(false);
-                          }, 1000);
+                          closeMobileNavMenu();
                         }}
                       >
                         Home
@@ -235,15 +228,18 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                     <Nav.Item>
                       <Nav.Link
                         onClick={() => {
-                          if (onDetailsPage) {
-                            window.location.href = `${pageUrl}?scrollTo=services_section`;
-                          } else {
-                            scrollIntoView("#services_section");
-                          }
-                          setPlayOpenAnimation(false);
-                          setTimeout(() => {
-                            setIsNavMenuOpen(false);
-                          }, 1000);
+                          //window.location.href = `${pageUrl}?scrollTo=services_section`;
+                          onDetailsPage
+                            ? navigate(pageUrl, {
+                                state: {
+                                  scrollTo: WindowLocations.Service_Section,
+                                },
+                                replace: true,
+                              })
+                            : scrollIntoView(
+                                `#${WindowLocations.Service_Section}`
+                              );
+                          closeMobileNavMenu();
                         }}
                       >
                         Services
@@ -252,15 +248,18 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                     <Nav.Item>
                       <Nav.Link
                         onClick={() => {
-                          if (onDetailsPage) {
-                            window.location.href = `${pageUrl}?scrollTo=portfolio_section`;
-                          } else {
-                            scrollIntoView("#portfolio_section");
-                          }
-                          setPlayOpenAnimation(false);
-                          setTimeout(() => {
-                            setIsNavMenuOpen(false);
-                          }, 1000);
+                          //window.location.href = `${pageUrl}?scrollTo=portfolio_section`;
+                          onDetailsPage
+                            ? navigate(pageUrl, {
+                                state: {
+                                  scrollTo: WindowLocations.Portfolio_Section,
+                                },
+                                replace: true,
+                              })
+                            : scrollIntoView(
+                                `#${WindowLocations.Portfolio_Section}`
+                              );
+                          closeMobileNavMenu();
                         }}
                       >
                         Portfolio
@@ -269,15 +268,18 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                     <Nav.Item>
                       <Nav.Link
                         onClick={() => {
-                          if (onDetailsPage) {
-                            window.location.href = `${pageUrl}?scrollTo=skills_section`;
-                          } else {
-                            scrollIntoView("#skills_section");
-                          }
-                          setPlayOpenAnimation(false);
-                          setTimeout(() => {
-                            setIsNavMenuOpen(false);
-                          }, 1000);
+                          //window.location.href = `${pageUrl}?scrollTo=skills_section`;
+                          onDetailsPage
+                            ? navigate(pageUrl, {
+                                state: {
+                                  scrollTo: WindowLocations.Skills_Section,
+                                },
+                                replace: true,
+                              })
+                            : scrollIntoView(
+                                `#${WindowLocations.Skills_Section}`
+                              );
+                          closeMobileNavMenu();
                         }}
                       >
                         Skills
@@ -286,15 +288,18 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                     <Nav.Item>
                       <Nav.Link
                         onClick={() => {
-                          if (onDetailsPage) {
-                            window.location.href = `${pageUrl}?scrollTo=profile_section`;
-                          } else {
-                            scrollIntoView("#profile_section");
-                          }
-                          setPlayOpenAnimation(false);
-                          setTimeout(() => {
-                            setIsNavMenuOpen(false);
-                          }, 1000);
+                          //window.location.href = `${pageUrl}?scrollTo=profile_section`;
+                          onDetailsPage
+                            ? navigate(pageUrl, {
+                                state: {
+                                  scrollTo: WindowLocations.Profile_Section,
+                                },
+                                replace: true,
+                              })
+                            : scrollIntoView(
+                                `#${WindowLocations.Profile_Section}`
+                              );
+                          closeMobileNavMenu();
                         }}
                       >
                         About
@@ -305,10 +310,7 @@ function NavMenu({ onDetailsPage }: NavMenuI) {
                         eventKey="link-6"
                         href="/#contact"
                         onClick={() => {
-                          setPlayOpenAnimation(false);
-                          setTimeout(() => {
-                            setIsNavMenuOpen(false);
-                          }, 1000);
+                          closeMobileNavMenu();
                         }}
                       >
                         Contact Me

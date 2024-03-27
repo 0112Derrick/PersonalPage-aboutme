@@ -3,35 +3,40 @@ import React, { useEffect } from "react";
 import ".././App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import NavMenu from "./NavMenu";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Routes,
+  useParams,
+  useLocation,
+} from "react-router-dom";
 import { Home } from "./Home";
 import { CardDetail } from "./CardDetail";
 import Footer from "./Footer";
 import ContactForm from "./ContactForm";
 
 export function ScrollIntoView() {
-  const location = window.location.search;
-
-  console.log("Search: " + window.location.search);
+  const location = useLocation();
+  const params = location.state;
+  console.log(params);
 
   useEffect(() => {
-    const params = new URLSearchParams(location);
-    console.log(params.toString());
-    console.log(params.has("scrollTo"));
+    if (params) {
+      const sectionToScroll = params.scrollTo || "";
+      console.log(`Scroll to: ${sectionToScroll || "Undefined"}`);
 
-    const sectionToScroll = params.get("scrollTo");
-    if (sectionToScroll) {
-      console.log(sectionToScroll);
-      const targetElement = document.querySelector("#" + sectionToScroll);
-      if (targetElement) {
-        targetElement?.scrollIntoView({ behavior: "smooth" });
+      if (sectionToScroll) {
+        const targetElement = document.querySelector("#" + sectionToScroll);
+        if (targetElement) {
+          targetElement?.scrollIntoView({ behavior: "smooth" });
+        } else {
+          console.error("Element does not exist.");
+        }
       } else {
-        console.error("Element does not exist.");
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }, [location]);
+  }, [location.state]);
   return null;
 }
 
