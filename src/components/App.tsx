@@ -7,7 +7,6 @@ import {
   HashRouter as Router,
   Route,
   Routes,
-  useParams,
   useLocation,
 } from "react-router-dom";
 import { Home } from "./Home";
@@ -36,6 +35,7 @@ export function ScrollIntoView() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
+    // eslint-disable-next-line
   }, [location.state]);
   return null;
 }

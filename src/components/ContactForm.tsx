@@ -33,17 +33,6 @@ function ContactForm() {
   const navigate = useNavigate();
 
   async function onSubmit(e: any) {
-    // Capture form values before awaiting fetchUserData
-    // const formOptions = e.currentTarget?.formOptions.value;
-    // const formOrganization = e.currentTarget?.formOrganization.value
-    //   ? e.currentTarget?.formOrganization.value
-    //   : "N/A";
-    // const formName = e.currentTarget?.formName.value;
-    // const formEmail = e.currentTarget?.formEmail.value;
-    // const formEmailBody = e.currentTarget?.formEmailBody.value;
-
-    // const isEmail = emailRegex.test(e.currentTarget?.formEmail.value);
-
     const formOptions = e.formOptions;
     const formOrganization = e.formOrganization ? e.formOrganization : "N/A";
     const formName = e.formName;
@@ -78,7 +67,8 @@ function ContactForm() {
       };
 
       const result = await fetch(
-        "https://uqqwvytdo7.execute-api.us-east-2.amazonaws.com/Prod",
+        // "https://uqqwvytdo7.execute-api.us-east-2.amazonaws.com/Prod",
+        "https://8zhapv77l1.execute-api.us-east-2.amazonaws.com/Beta",
         {
           method: "POST",
           mode: "cors",
@@ -130,7 +120,6 @@ function ContactForm() {
           <div
             className="details-button-home-contact-form"
             onClick={() => {
-              // window.location.href = siteUrl;
               navigate(siteUrl);
             }}
           >
