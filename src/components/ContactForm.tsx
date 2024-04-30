@@ -67,7 +67,6 @@ function ContactForm() {
       };
 
       const result = await fetch(
-        // "https://uqqwvytdo7.execute-api.us-east-2.amazonaws.com/Prod",
         "https://8zhapv77l1.execute-api.us-east-2.amazonaws.com/Beta",
         {
           method: "POST",
