@@ -25,30 +25,6 @@ export function Skills() {
         <hr></hr>
         <Row className="grid grid-col-repeat-3-auto padding-sm align-items-center justify-center gap">
           <Col
-            className={`text-align-center flex flex-d-col align-items-center justify-center padding-md ${
-              isTabletOrMobile ? "mobileScrollInSideLeft z-mobileFadeIn" : ""
-            }`}
-          >
-            <LazyLoadImage
-              src={`${process.env.PUBLIC_URL}/images/html.svg`}
-              alt=""
-              className="img-fluid"
-            ></LazyLoadImage>
-            <h3 className="width-max">HTML</h3>
-          </Col>
-          <Col
-            className={`text-align-center flex flex-d-col align-items-center justify-center ${
-              isTabletOrMobile ? "mobileScrollInSideLeft z-mobileFadeIn" : ""
-            }`}
-          >
-            <LazyLoadImage
-              src={`${process.env.PUBLIC_URL}/images/css.svg`}
-              alt=""
-              className="img-fluid"
-            ></LazyLoadImage>
-            <h3>CSS</h3>
-          </Col>
-          <Col
             className={`text-align-center flex flex-d-col align-items-center justify-center ${
               isTabletOrMobile ? "mobileScrollInSideLeft z-mobileFadeIn" : ""
             }`}
@@ -72,6 +48,18 @@ export function Skills() {
               className="img-fluid"
             ></LazyLoadImage>
             <h3 className="width-max">REACT</h3>
+          </Col>
+          <Col
+            className={`text-align-center flex flex-d-col align-items-center justify-center ${
+              isTabletOrMobile ? "mobileScrollInSideLeft z-mobileFadeIn" : ""
+            }`}
+          >
+            <LazyLoadImage
+              src={`${process.env.PUBLIC_URL}/images/angular-icon.svg`}
+              alt=""
+              className="img-fluid"
+            ></LazyLoadImage>
+            <h3 className="width-max">Angular</h3>
           </Col>
           <Col
             className={`text-align-center flex flex-d-col align-items-center justify-center ${
@@ -107,7 +95,7 @@ export function Skills() {
               alt=""
               className="img-fluid"
             ></LazyLoadImage>
-            <h3 className="width-max">ASP.NET WEB API</h3>
+            <h3 className="width-max">ASP.NET Core / .NET Framework</h3>
           </Col>
         </Row>
       </Container>
